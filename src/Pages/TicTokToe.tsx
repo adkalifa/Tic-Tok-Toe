@@ -65,45 +65,11 @@ export function DeriveGameTurn(gameTurn: any) {
 export default function TicTokToe() {
   const [player, setPlayers] = useState(PLAYER);
   const [gameTurn, setGameTurn] = useState<any>([]);
-  // const [activePlayer, setActivePlayer] = useState<string>('');
   const activePlayer = DerivedStateCode(gameTurn);
-
-   
   const gameShow = DeriveGameTurn(gameTurn);
-
-  // const gameShow: any = INITIAL_LIST.map((array) => [...array]);
-
-  // for (const turn of gameTurn) {
-  //   const { square, player } = turn;
-  //   const { row, col } = square;
-
-  //   gameShow[row][col] = player;
-  // }
-
-  // for (const combination of WINNING_COMBINATIONS) {
-  //   const firstRowSelected =
-  //     gameShow[combination[0].row][combination[0].column];
-  //   const secondRowSelected =
-  //     gameShow[combination[1].row][combination[1].column];
-  //   const thirdRowSelected =
-  //     gameShow[combination[2].row][combination[2].column];
-  //   if (
-  //     firstRowSelected &&
-  //     firstRowSelected === secondRowSelected &&
-  //     firstRowSelected === thirdRowSelected
-  //   ) {
-  //     winner = player[firstRowSelected];
-  //   }
-  //   winner
-  // }
-
   const winner = DeriveWinning(gameShow, player);
 
   const handleClickSelect = (rowIndex: number, colIndex: number) => {
-    // setActivePlayer((activePlayer: string) =>
-    //   activePlayer === "X" ? "O" : "X"
-    // );
-
     setGameTurn((prevState: GameState[]) => {
       const currentPlayer = DerivedStateCode(prevState);
       const updatedState = [
